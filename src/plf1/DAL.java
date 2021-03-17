@@ -40,8 +40,6 @@ public class DAL {
         ArrayList<Car> cars = new ArrayList<>();
         String[] carValues = br.lines().toArray(String[]::new);
         
-        //br.lines().toArray(String[]::new);
-        
         return null; //return cars;
     }
 }

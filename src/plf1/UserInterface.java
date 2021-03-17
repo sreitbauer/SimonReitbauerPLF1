@@ -33,6 +33,7 @@ public class UserInterface extends javax.swing.JFrame {
         
         defaultColor = new Color(0, 0, 255);
         tm = new TableModel();
+        jtCarData.setModel(tm);
         c = (Canvas)jPanel2;
         
         /*ArrayList<Car> tmp = new ArrayList<>();
@@ -51,8 +52,10 @@ public class UserInterface extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new Canvas();
+        jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtCarData = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -75,10 +78,12 @@ public class UserInterface extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 322, Short.MAX_VALUE)
+            .addGap(0, 344, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel2);
+
+        jPanel3.setLayout(new java.awt.BorderLayout());
 
         jtCarData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -93,7 +98,12 @@ public class UserInterface extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtCarData);
 
-        jPanel1.add(jScrollPane1);
+        jPanel3.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+
+        jLabel1.setText("List of all cars");
+        jPanel3.add(jLabel1, java.awt.BorderLayout.PAGE_START);
+
+        jPanel1.add(jPanel3);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -154,7 +164,10 @@ public class UserInterface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void onColorChange(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onColorChange
-        defaultColor = JColorChooser.showDialog(this, "Please select a color", defaultColor);
+        Color c = JColorChooser.showDialog(this, "Please select a color", defaultColor);
+        if(c != null) {
+            defaultColor = c;
+        }
     }//GEN-LAST:event_onColorChange
 
     private void onOpen(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onOpen
@@ -181,11 +194,10 @@ public class UserInterface extends javax.swing.JFrame {
         if(dlg.isOK()) {
             try {
                 tm.addCar(new Car(dlg.getX(), dlg.getY(), defaultColor.getRed(), defaultColor.getGreen(), defaultColor.getBlue()));
-               
                 c.setCars(tm.getAllCars());
                 c.repaint();
             } catch(Exception e) {
-                JOptionPane.showMessageDialog(this, "Something went wrong", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Something went wrong while creating your new car!", "Error", JOptionPane.ERROR_MESSAGE);
             }           
         }       
     }//GEN-LAST:event_onAdd
@@ -230,6 +242,7 @@ public class UserInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
@@ -241,6 +254,7 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jtCarData;
     // End of variables declaration//GEN-END:variables
