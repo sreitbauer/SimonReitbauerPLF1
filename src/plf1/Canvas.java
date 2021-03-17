@@ -30,14 +30,22 @@ public class Canvas extends JPanel {
         Graphics2D g2d = (Graphics2D)g;
         g2d.setColor(new Color(0, 0, 255));
         
+        int temp_x = 150, temp_y = 150;
+        
         //Car body
-        Rectangle2D.Float carBody = new Rectangle2D.Float(100, 120, 80, 20);
+        Rectangle2D.Float carBody = new Rectangle2D.Float(temp_x, temp_y + 20, 80, 20);
         
         //Car Head
-        Ellipse2D.Float carHead = new Ellipse2D.Float(130, 100, 20, 20);
+        Ellipse2D.Float carHead = new Ellipse2D.Float(temp_x + 30, temp_y, 20, 20);
+        
+        //Car
+        Ellipse2D.Float left = new Ellipse2D.Float(temp_x + 10, temp_y + 40, 20, 20);
+        Ellipse2D.Float right = new Ellipse2D.Float(temp_x + 50, temp_y + 40, 20, 20);
         
         g2d.fill(carBody);
         g2d.fill(carHead);
+        g2d.fill(left);
+        g2d.fill(right);
     }
     
 }
