@@ -7,6 +7,7 @@ package plf1;
 
 import java.awt.Color;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JColorChooser;
@@ -20,6 +21,7 @@ public class UserInterface extends javax.swing.JFrame {
 
     Color defaultColor;
     TableModel tm;
+    Canvas c;
     
     /**
      * Creates new form UserInterface
@@ -31,8 +33,11 @@ public class UserInterface extends javax.swing.JFrame {
         
         defaultColor = new Color(0, 0, 255);
         tm = new TableModel();
+        c = (Canvas)jPanel2;
         
-        
+        ArrayList<Car> tmp = new ArrayList<>();
+        tmp.add(new Car(100, 100, 0, 0, 255));
+        c.setCars(tmp);
     }
 
     /**
@@ -166,6 +171,8 @@ public class UserInterface extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Something went wrong", "Error", JOptionPane.ERROR_MESSAGE);
             }           
         }
+        
+        
     }//GEN-LAST:event_onAdd
 
     private void onCloseApp(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onCloseApp

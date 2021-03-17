@@ -55,4 +55,7 @@ public class TableModel extends AbstractTableModel {
         cars = DAL.open();
     }
     
+    ArrayList<Car> getAllCars() {
+        return cars;
+    }
 }
