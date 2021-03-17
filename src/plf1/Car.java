@@ -21,25 +21,15 @@ public class Car {
         m_b = blue;
     }
 
-    public int getX() {
-        return m_x;
-    }
+    public int getX() { return m_x; }
 
-    public int getY() {
-        return m_y;
-    }
+    public int getY() { return m_y; }
 
-    public int getR() {
-        return m_r;
-    }
+    public int getR() { return m_r; }
 
-    public int getG() {
-        return m_g;
-    }
+    public int getG() { return m_g; }
 
-    public int getB() {
-        return m_b;
-    }
+    public int getB() { return m_b; }
     
     
 }

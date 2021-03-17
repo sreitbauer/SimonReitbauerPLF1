@@ -22,8 +22,7 @@ public class DAL {
         pw.println("# Version 1.0");
         pw.println("# 16/03/2021");
         pw.println("# x, y, red, green, blue");
-        
-        
+                
         for(Car car : cars) {
             pw.println(car.getX());
             pw.println(car.getY());
@@ -37,8 +36,8 @@ public class DAL {
     static public ArrayList<Car> open() throws FileNotFoundException {
         BufferedReader br = new BufferedReader(new FileReader("daten.txt"));
         
+        ArrayList<Car> cars = new ArrayList<>();
         
-        
-        return null;
+        return null; //return cars;
     }
 }

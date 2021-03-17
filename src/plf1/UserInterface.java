@@ -29,7 +29,7 @@ public class UserInterface extends javax.swing.JFrame {
     public UserInterface() {
         initComponents();
         setTitle("Zeichenprogramm");
-        setSize(600, 300);
+        setSize(900, 400);
         
         defaultColor = new Color(0, 0, 255);
         tm = new TableModel();
@@ -144,6 +144,7 @@ public class UserInterface extends javax.swing.JFrame {
     private void onOpen(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onOpen
         try {
             tm.open();
+            c.repaint();
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(this, ex, "An error occurred and the file could not be opened", JOptionPane.ERROR_MESSAGE);
         }
