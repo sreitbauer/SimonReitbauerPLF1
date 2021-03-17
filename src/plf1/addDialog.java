@@ -26,11 +26,10 @@ public class addDialog extends javax.swing.JDialog {
         setSize(300, 300);
         isOk = false;
         this.getRootPane().setDefaultButton(btOk);
-        
     }
     
     public int getX() {
-        return 100;//Integer.parseInt("100");
+        return 100; //Integer.parseInt(tfX.getText());
     }
     
     public int getY() {

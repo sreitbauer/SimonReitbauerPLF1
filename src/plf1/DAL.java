@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -34,9 +35,12 @@ public class DAL {
     }
 
     static public ArrayList<Car> open() throws FileNotFoundException {
-        BufferedReader br = new BufferedReader(new FileReader("daten.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("data.txt"));
         
         ArrayList<Car> cars = new ArrayList<>();
+        String[] carValues = br.lines().toArray(String[]::new);
+        
+        //br.lines().toArray(String[]::new);
         
         return null; //return cars;
     }
