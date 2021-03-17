@@ -19,7 +19,7 @@ import javax.swing.JPanel;
  */
 public class Canvas extends JPanel {   
     
-    ArrayList<Car> cars;
+    ArrayList<Car> cars = new ArrayList<Car>();
     
     public void setCars(ArrayList<Car> c) {
         cars = c;

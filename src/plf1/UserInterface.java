@@ -35,9 +35,9 @@ public class UserInterface extends javax.swing.JFrame {
         tm = new TableModel();
         c = (Canvas)jPanel2;
         
-        ArrayList<Car> tmp = new ArrayList<>();
+        /*ArrayList<Car> tmp = new ArrayList<>();
         tmp.add(new Car(100, 100, 0, 0, 255));
-        c.setCars(tmp);
+        c.setCars(tmp);*/
     }
 
     /**
@@ -52,17 +52,17 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new Canvas();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.BorderLayout());
 
         jPanel1.setLayout(new java.awt.GridLayout(1, 2));
 
@@ -80,32 +80,6 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.WEST);
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Commands");
-
-        jMenuItem4.setText("Add");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                onAdd(evt);
-            }
-        });
-        jMenu2.add(jMenuItem4);
-
-        jMenuItem5.setText("Delete");
-        jMenu2.add(jMenuItem5);
-
-        jMenuItem1.setText("Change Color");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                onColorChange(evt);
-            }
-        });
-        jMenu2.add(jMenuItem1);
-
-        jMenuBar1.add(jMenu2);
 
         jMenu3.setText("File");
 
@@ -135,6 +109,29 @@ public class UserInterface extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMenu2.setText("Commands");
+
+        jMenuItem4.setText("Add");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                onAdd(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
+
+        jMenuItem5.setText("Delete");
+        jMenu2.add(jMenuItem5);
+
+        jMenuItem1.setText("Change Color");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                onColorChange(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu2);
+
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -161,18 +158,19 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_onSave
 
     private void onAdd(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onAdd
-        addDialog dlg = new addDialog(this, false);
+        addDialog dlg = new addDialog(this, true);
         dlg.setTitle("Add a car");
         dlg.setVisible(true);
         if(dlg.isOK()) {
             try {
                 tm.addCar(new Car(dlg.getX(), dlg.getY(), defaultColor.getRed(), defaultColor.getGreen(), defaultColor.getBlue()));
+               
+                c.setCars(tm.getAllCars());
+                c.repaint();
             } catch(Exception e) {
                 JOptionPane.showMessageDialog(this, "Something went wrong", "Error", JOptionPane.ERROR_MESSAGE);
             }           
-        }
-        
-        
+        }       
     }//GEN-LAST:event_onAdd
 
     private void onCloseApp(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onCloseApp
@@ -215,7 +213,6 @@ public class UserInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;

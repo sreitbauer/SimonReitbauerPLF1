@@ -17,14 +17,6 @@ public class addDialog extends javax.swing.JDialog {
         return isOk;
     }
     
-    public int getX() {
-        return Integer.parseInt(this.tfX.getText());
-    }
-    
-    public int getY() {
-        return Integer.parseInt(this.tfY.getText());
-    }
-    
     /**
      * Creates new form addDialog
      */
@@ -33,8 +25,16 @@ public class addDialog extends javax.swing.JDialog {
         initComponents();
         setSize(300, 300);
         isOk = false;
-        //this.getRootPane().setDefaultButton(btOk);
+        this.getRootPane().setDefaultButton(btOk);
         
+    }
+    
+    public int getX() {
+        return 100;//Integer.parseInt("100");
+    }
+    
+    public int getY() {
+        return 100;//Integer.parseInt(tfY.getText());
     }
 
     /**
@@ -45,7 +45,6 @@ public class addDialog extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -57,15 +56,18 @@ public class addDialog extends javax.swing.JDialog {
         btCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.BorderLayout());
 
         jPanel1.setLayout(new java.awt.GridLayout(2, 2));
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("X");
         jPanel1.add(jLabel1);
 
         tfX.setText("100");
         jPanel1.add(tfX);
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Y");
         jPanel1.add(jLabel2);
 
@@ -74,7 +76,7 @@ public class addDialog extends javax.swing.JDialog {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        jPanel2.setLayout(new java.awt.GridLayout());
+        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
         btOk.setText("Ok");
         btOk.addActionListener(new java.awt.event.ActionListener() {

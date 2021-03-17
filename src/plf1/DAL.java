@@ -24,13 +24,13 @@ public class DAL {
         pw.println("# x, y, red, green, blue");
         
         
-        /*for(Car car : cars) {
-            pw.println(car.getX);
-            pw.println(car.getY);
-            pw.println(car.getRed);
-            pw.println(car.getGreen);
-            pw.println(car.getBlue);
-        }*/
+        for(Car car : cars) {
+            pw.println(car.getX());
+            pw.println(car.getY());
+            pw.println(car.getR());
+            pw.println(car.getG());
+            pw.println(car.getB());
+        }
         pw.close();
     }
 
