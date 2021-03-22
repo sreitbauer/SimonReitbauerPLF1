@@ -34,7 +34,14 @@ public class TableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        switch(columnIndex) {
+            case 0: return cars.get(rowIndex).getX();
+            case 1: return cars.get(rowIndex).getY();
+            case 2: return cars.get(rowIndex).getR();
+            case 3: return cars.get(rowIndex).getG();
+            case 4: return cars.get(rowIndex).getB();
+        }
+        return "???";
     }
     
     public void addCar(Car c) {
@@ -54,5 +61,15 @@ public class TableModel extends AbstractTableModel {
     void open() throws FileNotFoundException {
         cars = DAL.open();
     }
+    
+    ArrayList<Car> getAllCars() {
+        return cars;
+    }
+
+    @Override
+    public String getColumnName(int column) {
+        return colNames[column];
+    }
+    
     
 }

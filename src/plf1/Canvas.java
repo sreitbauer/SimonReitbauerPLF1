@@ -10,6 +10,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /**
@@ -18,26 +19,34 @@ import javax.swing.JPanel;
  */
 public class Canvas extends JPanel {   
     
-    Color col;
+    ArrayList<Car> cars = new ArrayList<Car>();
     
-    public void setColor(Color c) {
-        col = c;
+    public void setCars(ArrayList<Car> c) {
+        cars = c;
     }
     
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D)g;
-        g2d.setColor(new Color(0, 0, 255));
         
-        //Car body
-        Rectangle2D.Float carBody = new Rectangle2D.Float(100, 120, 80, 20);
+        if(cars.size() > -1) {
+           for(Car car : cars) {
+            g2d.setColor(new Color(car.getR(),car.getG(), car.getB()));
+            Rectangle2D.Float carBody = new Rectangle2D.Float(car.getX(), car.getY() + 20, 80, 20);
         
-        //Car Head
-        Ellipse2D.Float carHead = new Ellipse2D.Float(130, 100, 20, 20);
+            //Car Head
+            Ellipse2D.Float carHead = new Ellipse2D.Float(car.getX() + 30, car.getY(), 20, 20);
         
-        g2d.fill(carBody);
-        g2d.fill(carHead);
+            //Car
+            Ellipse2D.Float left = new Ellipse2D.Float(car.getX() + 10, car.getY() + 40, 20, 20);
+            Ellipse2D.Float right = new Ellipse2D.Float(car.getX() + 50, car.getY() + 40, 20, 20);
+        
+            g2d.fill(carBody);
+            g2d.fill(carHead);
+            g2d.fill(left);
+            g2d.fill(right);
+            } 
+        }  
     }
-    
 }
