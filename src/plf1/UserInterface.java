@@ -146,6 +146,11 @@ public class UserInterface extends javax.swing.JFrame {
         jMenu2.add(jMenuItem4);
 
         jMenuItem5.setText("Delete");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                onDeleteCar(evt);
+            }
+        });
         jMenu2.add(jMenuItem5);
 
         jMenuItem1.setText("Change Color");
@@ -174,7 +179,7 @@ public class UserInterface extends javax.swing.JFrame {
         try {
             tm.open();
             c.repaint();
-        } catch (FileNotFoundException ex) {
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, ex, "An error occurred and the file could not be opened", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_onOpen
@@ -191,12 +196,17 @@ public class UserInterface extends javax.swing.JFrame {
         addDialog dlg = new addDialog(this, true);
         dlg.setTitle("Add a car");
         dlg.setVisible(true);
+        
+        System.out.println(dlg.isOK());
+        
         if(dlg.isOK()) {
             try {
+                System.out.println("Creating new car: " + dlg.getX() + " " + dlg.getY() + " " + defaultColor.getRed() + " " + defaultColor.getGreen() + " " + defaultColor.getBlue());
                 tm.addCar(new Car(dlg.getX(), dlg.getY(), defaultColor.getRed(), defaultColor.getGreen(), defaultColor.getBlue()));
                 c.setCars(tm.getAllCars());
                 c.repaint();
             } catch(Exception e) {
+                e.printStackTrace();
                 JOptionPane.showMessageDialog(this, "Something went wrong while creating your new car!", "Error", JOptionPane.ERROR_MESSAGE);
             }           
         }       
@@ -205,6 +215,16 @@ public class UserInterface extends javax.swing.JFrame {
     private void onCloseApp(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onCloseApp
         System.exit(0);
     }//GEN-LAST:event_onCloseApp
+
+    private void onDeleteCar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onDeleteCar
+        int index = jtCarData.getSelectedRow();
+        if(index <= -1) {
+            JOptionPane.showMessageDialog(this, "There is no selected car", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            tm.removeCar(index);
+            jPanel2.repaint();
+        }
+    }//GEN-LAST:event_onDeleteCar
 
     /**
      * @param args the command line arguments

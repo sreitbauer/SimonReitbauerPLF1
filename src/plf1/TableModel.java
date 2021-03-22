@@ -58,7 +58,7 @@ public class TableModel extends AbstractTableModel {
         DAL.save(cars);
     }
 
-    void open() throws FileNotFoundException {
+    void open() throws Exception {
         cars = DAL.open();
     }
     
@@ -70,6 +70,4 @@ public class TableModel extends AbstractTableModel {
     public String getColumnName(int column) {
         return colNames[column];
     }
-    
-    
 }

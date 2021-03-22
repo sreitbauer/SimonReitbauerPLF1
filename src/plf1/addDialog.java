@@ -12,6 +12,7 @@ package plf1;
 public class addDialog extends javax.swing.JDialog {
 
     private boolean isOk;
+    private int X, Y;
     
     public boolean isOK() {
         return isOk;
@@ -25,15 +26,6 @@ public class addDialog extends javax.swing.JDialog {
         initComponents();
         setSize(300, 300);
         isOk = false;
-        this.getRootPane().setDefaultButton(btOk);
-    }
-    
-    public int getX() {
-        return 100; //Integer.parseInt(tfX.getText());
-    }
-    
-    public int getY() {
-        return 100;//Integer.parseInt(tfY.getText());
     }
 
     /**
@@ -55,7 +47,6 @@ public class addDialog extends javax.swing.JDialog {
         btCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.BorderLayout());
 
         jPanel1.setLayout(new java.awt.GridLayout(2, 2));
 
@@ -100,6 +91,8 @@ public class addDialog extends javax.swing.JDialog {
 
     private void onOk(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onOk
        isOk = true;
+       X = Integer.parseInt(tfX.getText());
+       Y = Integer.parseInt(tfY.getText());
        setVisible(false);
     }//GEN-LAST:event_onOk
 
@@ -108,6 +101,14 @@ public class addDialog extends javax.swing.JDialog {
         setVisible(false);
     }//GEN-LAST:event_onCancel
 
+    public int getX() {
+        return X;
+    }
+    
+    public int getY() {
+        return Y;
+    }
+    
     /**
      * @param args the command line arguments
      */

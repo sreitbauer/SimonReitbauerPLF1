@@ -34,12 +34,14 @@ public class DAL {
         pw.close();
     }
 
-    static public ArrayList<Car> open() throws FileNotFoundException {
+    static public ArrayList<Car> open() throws Exception {
         BufferedReader br = new BufferedReader(new FileReader("data.txt"));
         
         ArrayList<Car> cars = new ArrayList<>();
         String[] carValues = br.lines().toArray(String[]::new);
         
-        return null; //return cars;
+        //Keine Ahnung
+        
+        return null;
     }
 }
