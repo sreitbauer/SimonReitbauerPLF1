@@ -196,9 +196,6 @@ public class UserInterface extends javax.swing.JFrame {
         addDialog dlg = new addDialog(this, true);
         dlg.setTitle("Add a car");
         dlg.setVisible(true);
-        
-        System.out.println(dlg.isOK());
-        
         if(dlg.isOK()) {
             try {
                 System.out.println("Creating new car: " + dlg.getX() + " " + dlg.getY() + " " + defaultColor.getRed() + " " + defaultColor.getGreen() + " " + defaultColor.getBlue());
@@ -206,7 +203,6 @@ public class UserInterface extends javax.swing.JFrame {
                 c.setCars(tm.getAllCars());
                 c.repaint();
             } catch(Exception e) {
-                e.printStackTrace();
                 JOptionPane.showMessageDialog(this, "Something went wrong while creating your new car!", "Error", JOptionPane.ERROR_MESSAGE);
             }           
         }       
