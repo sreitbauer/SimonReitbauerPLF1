@@ -14,9 +14,7 @@ public class addDialog extends javax.swing.JDialog {
     private boolean isOk;
     private int X, Y;
     
-    public boolean isOK() {
-        return isOk;
-    }
+    public boolean isOK() { return isOk; }
     
     /**
      * Creates new form addDialog
@@ -101,13 +99,9 @@ public class addDialog extends javax.swing.JDialog {
         setVisible(false);
     }//GEN-LAST:event_onCancel
 
-    public int getX() {
-        return X;
-    }
+    public int getX() { return X; }
     
-    public int getY() {
-        return Y;
-    }
+    public int getY() { return Y; }
     
     /**
      * @param args the command line arguments
