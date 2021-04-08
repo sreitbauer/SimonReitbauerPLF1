@@ -7,9 +7,6 @@ package plf1;
 
 import java.awt.Color;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
 
@@ -35,10 +32,6 @@ public class UserInterface extends javax.swing.JFrame {
         tm = new TableModel();
         jtCarData.setModel(tm);
         c = (Canvas)jPanel2;
-        
-        /*ArrayList<Car> tmp = new ArrayList<>();
-        tmp.add(new Car(100, 100, 0, 0, 255));
-        c.setCars(tmp);*/
     }
 
     /**
@@ -96,6 +89,7 @@ public class UserInterface extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtCarData.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jtCarData);
 
         jPanel3.add(jScrollPane1, java.awt.BorderLayout.CENTER);

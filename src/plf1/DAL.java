@@ -21,7 +21,7 @@ public class DAL {
         PrintWriter pw = new PrintWriter("data.txt");
         pw.println("# List of all Cars");
         pw.println("# Version 1.0");
-        pw.println("# 16/03/2021");
+        pw.println("# 08/04/2021");
         pw.println("# x, y, red, green, blue");
                 
         for(Car car : cars) {
@@ -38,7 +38,6 @@ public class DAL {
         BufferedReader br = new BufferedReader(new FileReader("data.txt"));
         
         ArrayList<Car> cars = new ArrayList<>();
-        String[] carValues = br.lines().toArray(String[]::new);
         
         
         return null;
