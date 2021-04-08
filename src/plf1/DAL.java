@@ -40,7 +40,6 @@ public class DAL {
         ArrayList<Car> cars = new ArrayList<>();
         String[] carValues = br.lines().toArray(String[]::new);
         
-        //Keine Ahnung
         
         return null;
     }
