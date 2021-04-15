@@ -212,7 +212,7 @@ public class UserInterface extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "There is no selected car", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             tm.removeCar(index);
-            jPanel2.repaint();
+            c.repaint();
         }
     }//GEN-LAST:event_onDeleteCar
 
