@@ -30,7 +30,7 @@ public class Canvas extends JPanel {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D)g;
         
-        if(cars.size() > -1) {
+        if(cars.size() != 0) {
            for(Car car : cars) {
             g2d.setColor(new Color(car.getR(),car.getG(), car.getB()));
             Rectangle2D.Float carBody = new Rectangle2D.Float(car.getX(), car.getY() + 20, 80, 20);
