@@ -55,11 +55,13 @@ public class TableModel extends AbstractTableModel {
     }
     
     public void save() throws FileNotFoundException {
-        DAL.save(cars);
+        DAL dal = new DAL();
+        dal.save(cars);
     }
 
     void open() throws Exception {
-        cars = DAL.open();
+        DAL dal = new DAL();
+        cars = dal.open();
     }
     
     ArrayList<Car> getAllCars() {

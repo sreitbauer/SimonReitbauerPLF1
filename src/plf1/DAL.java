@@ -17,7 +17,7 @@ import java.util.Arrays;
  * @author simon
  */
 public class DAL {
-    static public void save(ArrayList<Car> cars) throws FileNotFoundException {
+    public void save(ArrayList<Car> cars) throws FileNotFoundException {
         PrintWriter pw = new PrintWriter("data.txt");
         pw.println("# List of all Cars");
         pw.println("# Version 1.0");
@@ -34,7 +34,7 @@ public class DAL {
         pw.close();
     }
 
-    static public ArrayList<Car> open() throws Exception {
+    public ArrayList<Car> open() throws Exception {
         BufferedReader br = new BufferedReader(new FileReader("data.txt"));
         
         ArrayList<Car> cars = new ArrayList<>();
