@@ -32,6 +32,7 @@ public class UserInterface extends javax.swing.JFrame {
         tm = new TableModel();
         jtCarData.setModel(tm);
         c = (Canvas)jPanel2;
+        c.setCars(tm.getAllCars());
     }
 
     /**
@@ -194,7 +195,6 @@ public class UserInterface extends javax.swing.JFrame {
             try {
                 System.out.println("Creating new car: " + dlg.getX() + " " + dlg.getY() + " " + defaultColor.getRed() + " " + defaultColor.getGreen() + " " + defaultColor.getBlue());
                 tm.addCar(new Car(dlg.getX(), dlg.getY(), defaultColor.getRed(), defaultColor.getGreen(), defaultColor.getBlue()));
-                c.setCars(tm.getAllCars());
                 c.repaint();
             } catch(Exception e) {
                 JOptionPane.showMessageDialog(this, "Something went wrong while creating your new car!", "Error", JOptionPane.ERROR_MESSAGE);
