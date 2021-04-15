@@ -30,18 +30,18 @@ public class Canvas extends JPanel {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D)g;
         
-        if(cars.size() != 0) {
+        if(!cars.isEmpty()) {
            for(Car car : cars) {
             g2d.setColor(new Color(car.getR(),car.getG(), car.getB()));
             Rectangle2D.Float carBody = new Rectangle2D.Float(car.getX(), car.getY() + 20, 80, 20);
-        
+            
             //Car Head
             Ellipse2D.Float carHead = new Ellipse2D.Float(car.getX() + 30, car.getY(), 20, 20);
-        
+            
             //Car
             Ellipse2D.Float left = new Ellipse2D.Float(car.getX() + 10, car.getY() + 40, 20, 20);
             Ellipse2D.Float right = new Ellipse2D.Float(car.getX() + 50, car.getY() + 40, 20, 20);
-        
+            
             g2d.fill(carBody);
             g2d.fill(carHead);
             g2d.fill(left);
