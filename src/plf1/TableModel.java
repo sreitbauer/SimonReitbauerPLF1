@@ -62,6 +62,7 @@ public class TableModel extends AbstractTableModel {
     void open() throws Exception {
         DAL dal = new DAL();
         cars = dal.open();
+        this.fireTableDataChanged();
     }
     
     ArrayList<Car> getAllCars() {
